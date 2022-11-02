@@ -13,6 +13,20 @@
 #define LOWER 1
 #define RAISE 2
 
+#define COMBO(name, keypress, keypos) \
+combo_##name {                        \
+	timeout-ms = <30>;                \
+	bindings = <keypress>;            \
+	key-positions = <keypos>;         \
+};
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+		COMBO(mtx, &mtx, 46 18 41)
+    };
+};
+
 #define MACRO(name, keys)             \
 name: name##_macro {                  \
 	label = #name;                    \
@@ -23,24 +37,10 @@ name: name##_macro {                  \
 	bindings = <keys>;                \
 };
 
-#define COMBO(name, keypress, keypos) \
-combo_##name {                        \
-	timeout-ms = <30>;                \
-	bindings = <keypress>;            \
-	key-positions = <keypos>;         \
-};
-
 / {
     macros {
 		MACRO(ditto, &kp LC(GRAVE))
-		MACRO(mtx, &kp LS(E) &kp Z &kp E &kp Q &kp U &kp I &kp e &kp l &kp DOT &kp N1)
-    };
-};
-
-/ {
-    combos {
-        compatible = "zmk,combos";
-		COMBO(mtx, &mtx, 46 18 41)
+		MACRO(mtx, &kp LS(E) &kp Z &kp E &kp Q &kp U &kp I &kp E &kp L &kp DOT &kp N1)
     };
 };
 
