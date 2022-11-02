@@ -26,6 +26,18 @@ name: name##_macro {                  \
 / {
     macros {
 		MACRO(ditto, &kp LC(GRAVE))
+		MACRO(mtx, &kp LS(E) &kp Z &kp E &kp Q &kp U &kp I &kp e &kp l &kp DOT &kp N1)
+    };
+};
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <46 18 41>;
+            bindings = <&mtx>;
+        };
     };
 };
 
